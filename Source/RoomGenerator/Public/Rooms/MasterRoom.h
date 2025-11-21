@@ -38,15 +38,19 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Room Generation|Size", meta = (ClampMin = "1"))
 	int32 MaxRoomSizeY = 1;
 
+	// Room Size in World Units (for mixed size generation)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Room Generation|Size")
+	FVector2D RoomSize = FVector2D(2000.0f, 2000.0f);
+
 	// Generation functions
 	UFUNCTION(BlueprintCallable, CallInEditor, Category = "Room Generation")
 	void GenerateRoom();
 
 	UFUNCTION(BlueprintCallable, CallInEditor, Category = "Room Generation")
-	void ClearRoom();
+	void GenerateRoomMixedSizes();
 
-protected:
-	void GenerateFloor(int32 RoomSizeX, int32 RoomSizeY);
+	UFUNCTION(BlueprintCallable, CallInEditor, Category = "Room Generation")
+	void ClearRoom();
 
 protected:
 	// Instanced Mesh Component for Floor
