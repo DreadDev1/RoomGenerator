@@ -16,6 +16,8 @@ AMasterRoom::AMasterRoom()
 void AMasterRoom::BeginPlay()
 {
 	Super::BeginPlay();
+
+	GenerateRoom();
 }
 
 void AMasterRoom::ClearRoom()
